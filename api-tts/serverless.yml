@@ -25,13 +25,13 @@ functions:
           path: /v2
           method: get
   v1ttsDescription:
-    handler: handler.v1_tts
+    handler: handler.v1_tts_description
     events:
       - httpApi:
           path: /v1/tts
           method: post
   v2ttsDescription:
-    handler: handler.v2_tts
+    handler: handler.v2_tts_description
     events:
       - httpApi:
           path: /v2/tts

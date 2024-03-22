@@ -198,7 +198,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711133048279-2024-03-22T18:44:08.279Z/api-tts.zip"
               },
               "Handler": "handler.health",
               "Runtime": "python3.9",
@@ -223,7 +223,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711133048279-2024-03-22T18:44:08.279Z/api-tts.zip"
               },
               "Handler": "handler.v1_description",
               "Runtime": "python3.9",
@@ -248,7 +248,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711133048279-2024-03-22T18:44:08.279Z/api-tts.zip"
               },
               "Handler": "handler.v2_description",
               "Runtime": "python3.9",
@@ -273,9 +273,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711133048279-2024-03-22T18:44:08.279Z/api-tts.zip"
               },
-              "Handler": "handler.v1_tts",
+              "Handler": "handler.v1_tts_description",
               "Runtime": "python3.9",
               "FunctionName": "api-tts-dev-v1ttsDescription",
               "MemorySize": 1024,
@@ -298,9 +298,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711133048279-2024-03-22T18:44:08.279Z/api-tts.zip"
               },
-              "Handler": "handler.v2_tts",
+              "Handler": "handler.v2_tts_description",
               "Runtime": "python3.9",
               "FunctionName": "api-tts-dev-v2ttsDescription",
               "MemorySize": 1024,
@@ -346,7 +346,7 @@
               "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
-          "V1ttsDescriptionLambdaVersionxbXMIjm6zUF1HZzvVQfTKETJXasLLkSLMP0365d47us": {
+          "V1ttsDescriptionLambdaVersionDMok222one2TVwzGNeLcXMAc5zm2Lo4VqvlWZwzQ0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
@@ -356,7 +356,7 @@
               "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
-          "V2ttsDescriptionLambdaVersionzc70VnQvzynpa66L71ZfAkTZWR6je4h2nAYRz2jc": {
+          "V2ttsDescriptionLambdaVersionjCO2BwK2v34GKE3OWPfC8Nen492tkxgMM975c0C1g9M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
@@ -786,7 +786,7 @@
           "V1ttsDescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V1ttsDescriptionLambdaVersionxbXMIjm6zUF1HZzvVQfTKETJXasLLkSLMP0365d47us"
+              "Ref": "V1ttsDescriptionLambdaVersionDMok222one2TVwzGNeLcXMAc5zm2Lo4VqvlWZwzQ0"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V1ttsDescriptionLambdaFunctionQualifiedArn"
@@ -795,7 +795,7 @@
           "V2ttsDescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V2ttsDescriptionLambdaVersionzc70VnQvzynpa66L71ZfAkTZWR6je4h2nAYRz2jc"
+              "Ref": "V2ttsDescriptionLambdaVersionjCO2BwK2v34GKE3OWPfC8Nen492tkxgMM975c0C1g9M"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V2ttsDescriptionLambdaFunctionQualifiedArn"
@@ -984,7 +984,7 @@
         "versionLogicalId": "V2DescriptionLambdaVersionpRK0VgRLRymDv4bsbNnLavi2HO7OqPkioXtGiwsec"
       },
       "v1ttsDescription": {
-        "handler": "handler.v1_tts",
+        "handler": "handler.v1_tts_description",
         "events": [
           {
             "httpApi": {
@@ -1001,10 +1001,10 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V1ttsDescriptionLambdaVersionxbXMIjm6zUF1HZzvVQfTKETJXasLLkSLMP0365d47us"
+        "versionLogicalId": "V1ttsDescriptionLambdaVersionDMok222one2TVwzGNeLcXMAc5zm2Lo4VqvlWZwzQ0"
       },
       "v2ttsDescription": {
-        "handler": "handler.v2_tts",
+        "handler": "handler.v2_tts_description",
         "events": [
           {
             "httpApi": {
@@ -1021,7 +1021,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V2ttsDescriptionLambdaVersionzc70VnQvzynpa66L71ZfAkTZWR6je4h2nAYRz2jc"
+        "versionLogicalId": "V2ttsDescriptionLambdaVersionjCO2BwK2v34GKE3OWPfC8Nen492tkxgMM975c0C1g9M"
       }
     },
     "configValidationMode": "warn",
@@ -1041,7 +1041,7 @@
     "artifact": "C:\\Users\\User\\Desktop\\sprint6\\actividade_sprint4-6_equipe6\\api-tts\\.serverless\\api-tts.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z",
+    "artifactDirectoryName": "serverless/api-tts/dev/1711133048279-2024-03-22T18:44:08.279Z",
     "artifact": "api-tts.zip"
   }
 }
