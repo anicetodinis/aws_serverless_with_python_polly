@@ -29,7 +29,7 @@ def v2_description(event, context):
 
     return response
 
-def v1tts_description(event, context):
+def v1_tts_description(event, context):
     body = {
         "phrase": "converta esse texto para áudio"
     }
@@ -37,8 +37,8 @@ def v1tts_description(event, context):
     response = {"statusCode": 200, "body": json.dumps(body)}
     return response
 
-def v2tts_description(event, context):
-    body = {
+def v2_tts_description(event, context):
+    body =   {
     "received_phrase": "converta esse texto para áudio",
     "url_to_audio": "https://meu-buckect/audio-xyz.mp3",
     "created_audio": "02-02-2023 17:00:00"

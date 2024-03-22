@@ -198,7 +198,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711110764067-2024-03-22T12:32:44.067Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
               },
               "Handler": "handler.health",
               "Runtime": "python3.9",
@@ -223,7 +223,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711110764067-2024-03-22T12:32:44.067Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
               },
               "Handler": "handler.v1_description",
               "Runtime": "python3.9",
@@ -248,7 +248,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711110764067-2024-03-22T12:32:44.067Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
               },
               "Handler": "handler.v2_description",
               "Runtime": "python3.9",
@@ -273,7 +273,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711110764067-2024-03-22T12:32:44.067Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
               },
               "Handler": "handler.v1_tts",
               "Runtime": "python3.9",
@@ -298,7 +298,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711110764067-2024-03-22T12:32:44.067Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z/api-tts.zip"
               },
               "Handler": "handler.v2_tts",
               "Runtime": "python3.9",
@@ -316,54 +316,54 @@
               "V2ttsDescriptionLogGroup"
             ]
           },
-          "HealthLambdaVersionEafc1jz4HSnuF3L3g7sTMNauU8quQ0XyMPzqsK0Y": {
+          "HealthLambdaVersiont5v2tx3mY2pK8uHyo1NQvWc0I0pHsQM2LSpXGcDXbls": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "HealthLambdaFunction"
               },
-              "CodeSha256": "YViYh8XrBtErCDQ9QQXoqp9WIwuvp5ngVxVqVGH+3/I="
+              "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
-          "V1DescriptionLambdaVersionZRseAfXtbTXx9bCu3UwGV534JI8NH8Pt7WCS5rOd1Vw": {
+          "V1DescriptionLambdaVersion6EPE5xx7VIpOVD7G64CVMBXdjTjOQMMvFLY4jQDvY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V1DescriptionLambdaFunction"
               },
-              "CodeSha256": "YViYh8XrBtErCDQ9QQXoqp9WIwuvp5ngVxVqVGH+3/I="
+              "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
-          "V2DescriptionLambdaVersion5J4BAWAMP6dTRmJ92B8pLXklYucBE5uc6yMoY1Etf2M": {
+          "V2DescriptionLambdaVersionpRK0VgRLRymDv4bsbNnLavi2HO7OqPkioXtGiwsec": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V2DescriptionLambdaFunction"
               },
-              "CodeSha256": "YViYh8XrBtErCDQ9QQXoqp9WIwuvp5ngVxVqVGH+3/I="
+              "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
-          "V1ttsDescriptionLambdaVersionTRObbh0Y52Hx4wNfLHbxX4AwnGYa5mZKSbgbG0PmB8": {
+          "V1ttsDescriptionLambdaVersionxbXMIjm6zUF1HZzvVQfTKETJXasLLkSLMP0365d47us": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V1ttsDescriptionLambdaFunction"
               },
-              "CodeSha256": "YViYh8XrBtErCDQ9QQXoqp9WIwuvp5ngVxVqVGH+3/I="
+              "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
-          "V2ttsDescriptionLambdaVersionGqHh32l58svIiD1HFFa3HLhLsJ53BRQFR2fs2XMte58": {
+          "V2ttsDescriptionLambdaVersionzc70VnQvzynpa66L71ZfAkTZWR6je4h2nAYRz2jc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V2ttsDescriptionLambdaFunction"
               },
-              "CodeSha256": "YViYh8XrBtErCDQ9QQXoqp9WIwuvp5ngVxVqVGH+3/I="
+              "CodeSha256": "BbWaA8kCH9gE4H4utwsz411ptn/U5/IbsIP20wsM+0E="
             }
           },
           "HttpApi": {
@@ -759,7 +759,7 @@
           "HealthLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HealthLambdaVersionEafc1jz4HSnuF3L3g7sTMNauU8quQ0XyMPzqsK0Y"
+              "Ref": "HealthLambdaVersiont5v2tx3mY2pK8uHyo1NQvWc0I0pHsQM2LSpXGcDXbls"
             },
             "Export": {
               "Name": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
@@ -768,7 +768,7 @@
           "V1DescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V1DescriptionLambdaVersionZRseAfXtbTXx9bCu3UwGV534JI8NH8Pt7WCS5rOd1Vw"
+              "Ref": "V1DescriptionLambdaVersion6EPE5xx7VIpOVD7G64CVMBXdjTjOQMMvFLY4jQDvY"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
@@ -777,7 +777,7 @@
           "V2DescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V2DescriptionLambdaVersion5J4BAWAMP6dTRmJ92B8pLXklYucBE5uc6yMoY1Etf2M"
+              "Ref": "V2DescriptionLambdaVersionpRK0VgRLRymDv4bsbNnLavi2HO7OqPkioXtGiwsec"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V2DescriptionLambdaFunctionQualifiedArn"
@@ -786,7 +786,7 @@
           "V1ttsDescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V1ttsDescriptionLambdaVersionTRObbh0Y52Hx4wNfLHbxX4AwnGYa5mZKSbgbG0PmB8"
+              "Ref": "V1ttsDescriptionLambdaVersionxbXMIjm6zUF1HZzvVQfTKETJXasLLkSLMP0365d47us"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V1ttsDescriptionLambdaFunctionQualifiedArn"
@@ -795,7 +795,7 @@
           "V2ttsDescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V2ttsDescriptionLambdaVersionGqHh32l58svIiD1HFFa3HLhLsJ53BRQFR2fs2XMte58"
+              "Ref": "V2ttsDescriptionLambdaVersionzc70VnQvzynpa66L71ZfAkTZWR6je4h2nAYRz2jc"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V2ttsDescriptionLambdaFunctionQualifiedArn"
@@ -941,7 +941,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "HealthLambdaVersionEafc1jz4HSnuF3L3g7sTMNauU8quQ0XyMPzqsK0Y"
+        "versionLogicalId": "HealthLambdaVersiont5v2tx3mY2pK8uHyo1NQvWc0I0pHsQM2LSpXGcDXbls"
       },
       "v1Description": {
         "handler": "handler.v1_description",
@@ -961,7 +961,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V1DescriptionLambdaVersionZRseAfXtbTXx9bCu3UwGV534JI8NH8Pt7WCS5rOd1Vw"
+        "versionLogicalId": "V1DescriptionLambdaVersion6EPE5xx7VIpOVD7G64CVMBXdjTjOQMMvFLY4jQDvY"
       },
       "v2Description": {
         "handler": "handler.v2_description",
@@ -981,7 +981,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V2DescriptionLambdaVersion5J4BAWAMP6dTRmJ92B8pLXklYucBE5uc6yMoY1Etf2M"
+        "versionLogicalId": "V2DescriptionLambdaVersionpRK0VgRLRymDv4bsbNnLavi2HO7OqPkioXtGiwsec"
       },
       "v1ttsDescription": {
         "handler": "handler.v1_tts",
@@ -1001,7 +1001,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V1ttsDescriptionLambdaVersionTRObbh0Y52Hx4wNfLHbxX4AwnGYa5mZKSbgbG0PmB8"
+        "versionLogicalId": "V1ttsDescriptionLambdaVersionxbXMIjm6zUF1HZzvVQfTKETJXasLLkSLMP0365d47us"
       },
       "v2ttsDescription": {
         "handler": "handler.v2_tts",
@@ -1021,7 +1021,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V2ttsDescriptionLambdaVersionGqHh32l58svIiD1HFFa3HLhLsJ53BRQFR2fs2XMte58"
+        "versionLogicalId": "V2ttsDescriptionLambdaVersionzc70VnQvzynpa66L71ZfAkTZWR6je4h2nAYRz2jc"
       }
     },
     "configValidationMode": "warn",
@@ -1041,7 +1041,7 @@
     "artifact": "C:\\Users\\User\\Desktop\\sprint6\\actividade_sprint4-6_equipe6\\api-tts\\.serverless\\api-tts.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/api-tts/dev/1711110764067-2024-03-22T12:32:44.067Z",
+    "artifactDirectoryName": "serverless/api-tts/dev/1711113999070-2024-03-22T13:26:39.070Z",
     "artifact": "api-tts.zip"
   }
 }
