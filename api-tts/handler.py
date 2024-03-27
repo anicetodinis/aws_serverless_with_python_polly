@@ -47,8 +47,10 @@ def v1_tts_description(event, context):
         response = polly.synthesize_speech(
             Text=phrase,
             OutputFormat='mp3',
-            VoiceId='Joanna'
+            VoiceId='Camila',
+            Engine='neural'
         )
+        
         file = response['AudioStream']
         id_unico = str(uuid.uuid4())
         nome = f"{id_unico}.mp3" 

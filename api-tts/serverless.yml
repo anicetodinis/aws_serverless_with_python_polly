@@ -61,11 +61,19 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: my-bucket-for-audios
-        PublicAccessBlockConfiguration:
-          BlockPublicAcls: false
-          BlockPublicPolicy: false
-          IgnorePublicAcls: false
-          RestrictPublicBuckets: false
+    
+    MyS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref MyS3Bucket
+        PolicyDocument:
+          Statement:
+            - Effect: Allow
+              Principal: "*"
+              Action: 
+                - s3:GetObject
+              Resource: 
+                - !Sub "arn:aws:s3:::${MyS3Bucket}/*"
           
           
           

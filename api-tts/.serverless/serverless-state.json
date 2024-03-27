@@ -220,7 +220,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711307606851-2024-03-24T19:13:26.851Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711527674933-2024-03-27T08:21:14.933Z/api-tts.zip"
               },
               "Handler": "handler.health",
               "Runtime": "python3.9",
@@ -245,7 +245,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711307606851-2024-03-24T19:13:26.851Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711527674933-2024-03-27T08:21:14.933Z/api-tts.zip"
               },
               "Handler": "handler.v1_description",
               "Runtime": "python3.9",
@@ -270,7 +270,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711307606851-2024-03-24T19:13:26.851Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711527674933-2024-03-27T08:21:14.933Z/api-tts.zip"
               },
               "Handler": "handler.v2_description",
               "Runtime": "python3.9",
@@ -295,7 +295,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711307606851-2024-03-24T19:13:26.851Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711527674933-2024-03-27T08:21:14.933Z/api-tts.zip"
               },
               "Handler": "handler.v1_tts_description",
               "Runtime": "python3.9",
@@ -320,7 +320,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/api-tts/dev/1711307606851-2024-03-24T19:13:26.851Z/api-tts.zip"
+                "S3Key": "serverless/api-tts/dev/1711527674933-2024-03-27T08:21:14.933Z/api-tts.zip"
               },
               "Handler": "handler.v2_tts_description",
               "Runtime": "python3.9",
@@ -338,54 +338,54 @@
               "V2ttsDescriptionLogGroup"
             ]
           },
-          "HealthLambdaVersion0Tq2F2hLGUWZwFTuMqa4uRz6jc5oMTFeOyHyFfGCo4": {
+          "HealthLambdaVersionjirmDkxdFvAlnQpQQu51SzQxCgFt3Ff85JkE1KqN8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "HealthLambdaFunction"
               },
-              "CodeSha256": "yeRPtL3wmHz6yh5VYsVGhV88IceJfRV9GJBoLxxgAAQ="
+              "CodeSha256": "ubCjCiGD2mDi7Yrs+sBwsEAd2M1zck07jQZOxxaWwzw="
             }
           },
-          "V1DescriptionLambdaVersion44zLVc3B0DW32cXuuWxcsbeYbpEcU9mFCeuN4zbJJY": {
+          "V1DescriptionLambdaVersionv50e7J8SrPMWwBnH8GuHzm0Zng4cXIHHRvi7NLIAYo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V1DescriptionLambdaFunction"
               },
-              "CodeSha256": "yeRPtL3wmHz6yh5VYsVGhV88IceJfRV9GJBoLxxgAAQ="
+              "CodeSha256": "ubCjCiGD2mDi7Yrs+sBwsEAd2M1zck07jQZOxxaWwzw="
             }
           },
-          "V2DescriptionLambdaVersionSlK6a8Zp5nh6FrbKRAoAU24WL2wY7aNOUl1se14z6I": {
+          "V2DescriptionLambdaVersionrUT5tt6Aqo3e6QnqgRh62ffI6qOpKOLBsMth40Hi9fc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V2DescriptionLambdaFunction"
               },
-              "CodeSha256": "yeRPtL3wmHz6yh5VYsVGhV88IceJfRV9GJBoLxxgAAQ="
+              "CodeSha256": "ubCjCiGD2mDi7Yrs+sBwsEAd2M1zck07jQZOxxaWwzw="
             }
           },
-          "V1ttsDescriptionLambdaVersiondOvs5tKv5boTt39Ht9eKTLDhxZz9skU6l57JIvdTQc": {
+          "V1ttsDescriptionLambdaVersionWeUJtXcPGtoN7YWsLMPE2TxyO8kzckJe1adJbgZuQrs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V1ttsDescriptionLambdaFunction"
               },
-              "CodeSha256": "yeRPtL3wmHz6yh5VYsVGhV88IceJfRV9GJBoLxxgAAQ="
+              "CodeSha256": "ubCjCiGD2mDi7Yrs+sBwsEAd2M1zck07jQZOxxaWwzw="
             }
           },
-          "V2ttsDescriptionLambdaVersionShJrN2KMqwZr7m1sN9T8aOAoYBaZcsAzs5fWwZeCU": {
+          "V2ttsDescriptionLambdaVersionIBICrorIgq4KMuQMGNGl2FMXbTDObHX9beKHPyuMo0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "V2ttsDescriptionLambdaFunction"
               },
-              "CodeSha256": "yeRPtL3wmHz6yh5VYsVGhV88IceJfRV9GJBoLxxgAAQ="
+              "CodeSha256": "ubCjCiGD2mDi7Yrs+sBwsEAd2M1zck07jQZOxxaWwzw="
             }
           },
           "HttpApi": {
@@ -771,12 +771,30 @@
           "MyS3Bucket": {
             "Type": "AWS::S3::Bucket",
             "Properties": {
-              "BucketName": "my-bucket-for-audios",
-              "PublicAccessBlockConfiguration": {
-                "BlockPublicAcls": false,
-                "BlockPublicPolicy": false,
-                "IgnorePublicAcls": false,
-                "RestrictPublicBuckets": false
+              "BucketName": "my-bucket-for-audios"
+            }
+          },
+          "MyS3BucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "MyS3Bucket"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Action": [
+                      "s3:GetObject"
+                    ],
+                    "Resource": [
+                      {
+                        "Fn::Sub": "arn:aws:s3:::${MyS3Bucket}/*"
+                      }
+                    ]
+                  }
+                ]
               }
             }
           }
@@ -793,7 +811,7 @@
           "HealthLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HealthLambdaVersion0Tq2F2hLGUWZwFTuMqa4uRz6jc5oMTFeOyHyFfGCo4"
+              "Ref": "HealthLambdaVersionjirmDkxdFvAlnQpQQu51SzQxCgFt3Ff85JkE1KqN8"
             },
             "Export": {
               "Name": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
@@ -802,7 +820,7 @@
           "V1DescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V1DescriptionLambdaVersion44zLVc3B0DW32cXuuWxcsbeYbpEcU9mFCeuN4zbJJY"
+              "Ref": "V1DescriptionLambdaVersionv50e7J8SrPMWwBnH8GuHzm0Zng4cXIHHRvi7NLIAYo"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
@@ -811,7 +829,7 @@
           "V2DescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V2DescriptionLambdaVersionSlK6a8Zp5nh6FrbKRAoAU24WL2wY7aNOUl1se14z6I"
+              "Ref": "V2DescriptionLambdaVersionrUT5tt6Aqo3e6QnqgRh62ffI6qOpKOLBsMth40Hi9fc"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V2DescriptionLambdaFunctionQualifiedArn"
@@ -820,7 +838,7 @@
           "V1ttsDescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V1ttsDescriptionLambdaVersiondOvs5tKv5boTt39Ht9eKTLDhxZz9skU6l57JIvdTQc"
+              "Ref": "V1ttsDescriptionLambdaVersionWeUJtXcPGtoN7YWsLMPE2TxyO8kzckJe1adJbgZuQrs"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V1ttsDescriptionLambdaFunctionQualifiedArn"
@@ -829,7 +847,7 @@
           "V2ttsDescriptionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "V2ttsDescriptionLambdaVersionShJrN2KMqwZr7m1sN9T8aOAoYBaZcsAzs5fWwZeCU"
+              "Ref": "V2ttsDescriptionLambdaVersionIBICrorIgq4KMuQMGNGl2FMXbTDObHX9beKHPyuMo0"
             },
             "Export": {
               "Name": "sls-api-tts-dev-V2ttsDescriptionLambdaFunctionQualifiedArn"
@@ -979,7 +997,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "HealthLambdaVersion0Tq2F2hLGUWZwFTuMqa4uRz6jc5oMTFeOyHyFfGCo4"
+        "versionLogicalId": "HealthLambdaVersionjirmDkxdFvAlnQpQQu51SzQxCgFt3Ff85JkE1KqN8"
       },
       "v1Description": {
         "handler": "handler.v1_description",
@@ -999,7 +1017,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V1DescriptionLambdaVersion44zLVc3B0DW32cXuuWxcsbeYbpEcU9mFCeuN4zbJJY"
+        "versionLogicalId": "V1DescriptionLambdaVersionv50e7J8SrPMWwBnH8GuHzm0Zng4cXIHHRvi7NLIAYo"
       },
       "v2Description": {
         "handler": "handler.v2_description",
@@ -1019,7 +1037,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V2DescriptionLambdaVersionSlK6a8Zp5nh6FrbKRAoAU24WL2wY7aNOUl1se14z6I"
+        "versionLogicalId": "V2DescriptionLambdaVersionrUT5tt6Aqo3e6QnqgRh62ffI6qOpKOLBsMth40Hi9fc"
       },
       "v1ttsDescription": {
         "handler": "handler.v1_tts_description",
@@ -1039,7 +1057,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V1ttsDescriptionLambdaVersiondOvs5tKv5boTt39Ht9eKTLDhxZz9skU6l57JIvdTQc"
+        "versionLogicalId": "V1ttsDescriptionLambdaVersionWeUJtXcPGtoN7YWsLMPE2TxyO8kzckJe1adJbgZuQrs"
       },
       "v2ttsDescription": {
         "handler": "handler.v2_tts_description",
@@ -1059,7 +1077,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "V2ttsDescriptionLambdaVersionShJrN2KMqwZr7m1sN9T8aOAoYBaZcsAzs5fWwZeCU"
+        "versionLogicalId": "V2ttsDescriptionLambdaVersionIBICrorIgq4KMuQMGNGl2FMXbTDObHX9beKHPyuMo0"
       }
     },
     "resources": {
@@ -1067,12 +1085,30 @@
         "MyS3Bucket": {
           "Type": "AWS::S3::Bucket",
           "Properties": {
-            "BucketName": "my-bucket-for-audios",
-            "PublicAccessBlockConfiguration": {
-              "BlockPublicAcls": false,
-              "BlockPublicPolicy": false,
-              "IgnorePublicAcls": false,
-              "RestrictPublicBuckets": false
+            "BucketName": "my-bucket-for-audios"
+          }
+        },
+        "MyS3BucketPolicy": {
+          "Type": "AWS::S3::BucketPolicy",
+          "Properties": {
+            "Bucket": {
+              "Ref": "MyS3Bucket"
+            },
+            "PolicyDocument": {
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": [
+                    "s3:GetObject"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:s3:::${MyS3Bucket}/*"
+                    }
+                  ]
+                }
+              ]
             }
           }
         }
@@ -1102,7 +1138,7 @@
     "artifact": "C:\\Users\\Aniceto Dinis\\Documents\\Machiene Learning\\equipe6\\actividade_sprint4-6_equipe6\\api-tts\\.serverless\\api-tts.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/api-tts/dev/1711307606851-2024-03-24T19:13:26.851Z",
+    "artifactDirectoryName": "serverless/api-tts/dev/1711527674933-2024-03-27T08:21:14.933Z",
     "artifact": "api-tts.zip"
   }
 }
