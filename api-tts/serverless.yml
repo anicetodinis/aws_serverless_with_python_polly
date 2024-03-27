@@ -1,9 +1,26 @@
 service: api-tts
 frameworkVersion: '3'
 
+plugins:
+  - serverless-deployment-bucket
+  - serverless-python-requirements
+
 provider:
   name: aws
   runtime: python3.9
+  iam:  # Inline policy definition
+    role:
+      statements:
+      - Effect: Allow
+        Action:
+          - polly:SynthesizeSpeech
+          - dynamodb:*
+          - s3:*
+        Resource: "*"
+          #- arn:aws:dynamodb:*:*:table/your-table-name  # Replace with your table ARN
+          #- arn:aws:s3:::my-bucket-for-audios 
+  deploymentBucket:
+    blockPublicAccess: false
 
 functions:
   health:
@@ -35,4 +52,20 @@ functions:
     events:
       - httpApi:
           path: /v2/tts
-          method: post
+          method: get
+
+#create bucket
+resources:
+  Resources:
+    MyS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: my-bucket-for-audios
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: false
+          BlockPublicPolicy: false
+          IgnorePublicAcls: false
+          RestrictPublicBuckets: false
+          
+          
+          
