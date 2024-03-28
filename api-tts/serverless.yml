@@ -8,17 +8,15 @@ plugins:
 provider:
   name: aws
   runtime: python3.9
-  iam:  # Inline policy definition
+  iam:
     role:
       statements:
-      - Effect: Allow
-        Action:
-          - polly:SynthesizeSpeech
-          - dynamodb:*
-          - s3:*
-        Resource: "*"
-          #- arn:aws:dynamodb:*:*:table/your-table-name  # Replace with your table ARN
-          #- arn:aws:s3:::my-bucket-for-audios 
+        - Effect: Allow
+          Action:
+            - polly:SynthesizeSpeech
+            - dynamodb:*
+            - s3:*
+          Resource: "*"
   deploymentBucket:
     blockPublicAccess: false
 
@@ -52,20 +50,14 @@ functions:
     events:
       - httpApi:
           path: /v2/tts
-          method: get
+          method: post
 
-#create bucket
 resources:
   Resources:
-    MyS3Bucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: my-bucket-for-audios
-    
     MyS3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
-        Bucket: !Ref MyS3Bucket
+        Bucket: "my-new-bucket-for-audios"
         PolicyDocument:
           Statement:
             - Effect: Allow
@@ -73,7 +65,4 @@ resources:
               Action: 
                 - s3:GetObject
               Resource: 
-                - !Sub "arn:aws:s3:::${MyS3Bucket}/*"
-          
-          
-          
+                - "arn:aws:s3:::my-new-bucket-for-audios/*"

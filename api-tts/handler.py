@@ -1,5 +1,4 @@
 import boto3
-import base64
 import json
 import uuid
 from datetime import datetime
@@ -55,13 +54,11 @@ def v1_tts_description(event, context):
         id_unico = str(uuid.uuid4())
         nome = f"{id_unico}.mp3" 
 
-        #acl='public-read'
-
-        #Adicionado o ficheiro no bucket
-        s3.upload_fileobj(file,"my-bucket-for-audios",nome,ExtraArgs={'ACL': 'bucket-owner-full-control'})
+        # Adicionando o ficheiro no novo bucket
+        s3.upload_fileobj(file, "my-new-bucket-for-audios", nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
         
         # Gerando a URL do audio
-        audio_url = "https://my-bucket-for-audios.s3.amazonaws.com/"+nome  
+        audio_url = "https://my-new-bucket-for-audios.s3.amazonaws.com/"+nome  
 
         # formatando a data de criação
         created_audio = now.strftime("%d-%m-%Y %H:%M:%S")
@@ -73,7 +70,7 @@ def v1_tts_description(event, context):
             "created_audio": created_audio
         }
 
-        return {"statusCode": 200,"body": json.dumps({"body": body})}
+        return {"statusCode": 200, "body": json.dumps({"body": body})}
     
     except (ClientError, json.JSONDecodeError) as error:
         # Lidando com possiveis erros
