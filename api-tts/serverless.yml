@@ -14,7 +14,9 @@ provider:
         - Effect: Allow
           Action:
             - polly:SynthesizeSpeech
-            - dynamodb:*
+            - dynamodb:PutItem
+            - dynamodb:GetItem
+            - dynamodb:Query
             - s3:*
           Resource: "*"
   deploymentBucket:
@@ -51,6 +53,12 @@ functions:
       - httpApi:
           path: /v2/tts
           method: post
+  v3ttsDescription:
+    handler: handler.v3_tts_description
+    events:
+      - httpApi:
+          path: /v3/tts
+          method: post
 
 resources:
   Resources:
@@ -66,3 +74,15 @@ resources:
                 - s3:GetObject
               Resource: 
                 - "arn:aws:s3:::my-new-bucket-for-audios/*"
+
+    MyDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: "AudioTranscriptions"
+        AttributeDefinitions:
+          - AttributeName: "Id"
+            AttributeType: "S"
+        KeySchema:
+          - AttributeName: "Id"
+            KeyType: "HASH"
+        BillingMode: "PAY_PER_REQUEST"

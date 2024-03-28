@@ -101,6 +101,12 @@
         "LogGroupName": "/aws/lambda/api-tts-dev-v2ttsDescription"
       }
     },
+    "V3ttsDescriptionLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/api-tts-dev-v3ttsDescription"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -163,7 +169,9 @@
                   "Effect": "Allow",
                   "Action": [
                     "polly:SynthesizeSpeech",
-                    "dynamodb:*",
+                    "dynamodb:PutItem",
+                    "dynamodb:GetItem",
+                    "dynamodb:Query",
                     "s3:*"
                   ],
                   "Resource": "*"
@@ -195,7 +203,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711631199650-2024-03-28T13:06:39.650Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
         },
         "Handler": "handler.health",
         "Runtime": "python3.9",
@@ -220,7 +228,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711631199650-2024-03-28T13:06:39.650Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
         },
         "Handler": "handler.v1_description",
         "Runtime": "python3.9",
@@ -245,7 +253,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711631199650-2024-03-28T13:06:39.650Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
         },
         "Handler": "handler.v2_description",
         "Runtime": "python3.9",
@@ -270,7 +278,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711631199650-2024-03-28T13:06:39.650Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
         },
         "Handler": "handler.v1_tts_description",
         "Runtime": "python3.9",
@@ -295,7 +303,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711631199650-2024-03-28T13:06:39.650Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
         },
         "Handler": "handler.v2_tts_description",
         "Runtime": "python3.9",
@@ -313,54 +321,89 @@
         "V2ttsDescriptionLogGroup"
       ]
     },
-    "HealthLambdaVersionxCzX7zM6Bj8H6WjmN0UDn7pZefoFuYUk2xoqCdaSYE": {
+    "V3ttsDescriptionLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+        },
+        "Handler": "handler.v3_tts_description",
+        "Runtime": "python3.9",
+        "FunctionName": "api-tts-dev-v3ttsDescription",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "V3ttsDescriptionLogGroup"
+      ]
+    },
+    "HealthLambdaVersionavprQha1UK4ikxDpRK89rn0jkhA8zIKx0JQSIT5A": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HealthLambdaFunction"
         },
-        "CodeSha256": "+zborQ3WGE3zSG2f4V9/h+sSMZNeMzrTkUalp18tcAs="
+        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
       }
     },
-    "V1DescriptionLambdaVersionTyDJEX8HfO5cns1KwpW5DG9YKpRxV5Awo1L2PssYXc": {
+    "V1DescriptionLambdaVersionK9GisLmI8CpTmTYHCpGEgMINsiBC0gzxuqi1h0Jvw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V1DescriptionLambdaFunction"
         },
-        "CodeSha256": "+zborQ3WGE3zSG2f4V9/h+sSMZNeMzrTkUalp18tcAs="
+        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
       }
     },
-    "V2DescriptionLambdaVersion0yjXnsR2J7zOiEW0g1aypDERY8wBDAyDvmFa8Kj6s": {
+    "V2DescriptionLambdaVersiongEYIFrOYdvNoofp4VEdJqPyUbsDO6HJqJYPlc7PwlO8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V2DescriptionLambdaFunction"
         },
-        "CodeSha256": "+zborQ3WGE3zSG2f4V9/h+sSMZNeMzrTkUalp18tcAs="
+        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
       }
     },
-    "V1ttsDescriptionLambdaVersionVQUjzR2HkNnDrzVtx59kUAhwJUnnjRxUaKpjb5MgI": {
+    "V1ttsDescriptionLambdaVersionPgBwFOOUF8kJSdjAwzMbKrW0lKv3YKTMJ16gZDw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V1ttsDescriptionLambdaFunction"
         },
-        "CodeSha256": "+zborQ3WGE3zSG2f4V9/h+sSMZNeMzrTkUalp18tcAs="
+        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
       }
     },
-    "V2ttsDescriptionLambdaVersionZO2z45DO6gW5rIBpmPufu70lwzd65XkFhydT8EYR4": {
+    "V2ttsDescriptionLambdaVersionBrz2ASHCxL3dEzHZM3U4KufNhiheSPL4xXbHhDOik": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V2ttsDescriptionLambdaFunction"
         },
-        "CodeSha256": "+zborQ3WGE3zSG2f4V9/h+sSMZNeMzrTkUalp18tcAs="
+        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+      }
+    },
+    "V3ttsDescriptionLambdaVersionBGec3zC30dsrpOU5cviVTXkXiW6duYR596pjrq7SE8U": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "V3ttsDescriptionLambdaFunction"
+        },
+        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
       }
     },
     "HttpApi": {
@@ -758,6 +801,81 @@
       },
       "DependsOn": "HttpApiIntegrationV2ttsDescription"
     },
+    "V3ttsDescriptionLambdaPermissionHttpApi": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "V3ttsDescriptionLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "HttpApi"
+              },
+              "/*"
+            ]
+          ]
+        }
+      }
+    },
+    "HttpApiIntegrationV3ttsDescription": {
+      "Type": "AWS::ApiGatewayV2::Integration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApi"
+        },
+        "IntegrationType": "AWS_PROXY",
+        "IntegrationUri": {
+          "Fn::GetAtt": [
+            "V3ttsDescriptionLambdaFunction",
+            "Arn"
+          ]
+        },
+        "PayloadFormatVersion": "2.0",
+        "TimeoutInMillis": 30000
+      }
+    },
+    "HttpApiRoutePostV3Tts": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApi"
+        },
+        "RouteKey": "POST /v3/tts",
+        "Target": {
+          "Fn::Join": [
+            "/",
+            [
+              "integrations",
+              {
+                "Ref": "HttpApiIntegrationV3ttsDescription"
+              }
+            ]
+          ]
+        }
+      },
+      "DependsOn": "HttpApiIntegrationV3ttsDescription"
+    },
     "MyS3BucketPolicy": {
       "Type": "AWS::S3::BucketPolicy",
       "Properties": {
@@ -777,6 +895,25 @@
           ]
         }
       }
+    },
+    "MyDynamoDBTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": "AudioTranscriptions",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "Id",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "Id",
+            "KeyType": "HASH"
+          }
+        ],
+        "BillingMode": "PAY_PER_REQUEST"
+      }
     }
   },
   "Outputs": {
@@ -791,7 +928,7 @@
     "HealthLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HealthLambdaVersionxCzX7zM6Bj8H6WjmN0UDn7pZefoFuYUk2xoqCdaSYE"
+        "Ref": "HealthLambdaVersionavprQha1UK4ikxDpRK89rn0jkhA8zIKx0JQSIT5A"
       },
       "Export": {
         "Name": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
@@ -800,7 +937,7 @@
     "V1DescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V1DescriptionLambdaVersionTyDJEX8HfO5cns1KwpW5DG9YKpRxV5Awo1L2PssYXc"
+        "Ref": "V1DescriptionLambdaVersionK9GisLmI8CpTmTYHCpGEgMINsiBC0gzxuqi1h0Jvw"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
@@ -809,7 +946,7 @@
     "V2DescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V2DescriptionLambdaVersion0yjXnsR2J7zOiEW0g1aypDERY8wBDAyDvmFa8Kj6s"
+        "Ref": "V2DescriptionLambdaVersiongEYIFrOYdvNoofp4VEdJqPyUbsDO6HJqJYPlc7PwlO8"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V2DescriptionLambdaFunctionQualifiedArn"
@@ -818,7 +955,7 @@
     "V1ttsDescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V1ttsDescriptionLambdaVersionVQUjzR2HkNnDrzVtx59kUAhwJUnnjRxUaKpjb5MgI"
+        "Ref": "V1ttsDescriptionLambdaVersionPgBwFOOUF8kJSdjAwzMbKrW0lKv3YKTMJ16gZDw"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V1ttsDescriptionLambdaFunctionQualifiedArn"
@@ -827,10 +964,19 @@
     "V2ttsDescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V2ttsDescriptionLambdaVersionZO2z45DO6gW5rIBpmPufu70lwzd65XkFhydT8EYR4"
+        "Ref": "V2ttsDescriptionLambdaVersionBrz2ASHCxL3dEzHZM3U4KufNhiheSPL4xXbHhDOik"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V2ttsDescriptionLambdaFunctionQualifiedArn"
+      }
+    },
+    "V3ttsDescriptionLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "V3ttsDescriptionLambdaVersionBGec3zC30dsrpOU5cviVTXkXiW6duYR596pjrq7SE8U"
+      },
+      "Export": {
+        "Name": "sls-api-tts-dev-V3ttsDescriptionLambdaFunctionQualifiedArn"
       }
     },
     "HttpApiId": {
