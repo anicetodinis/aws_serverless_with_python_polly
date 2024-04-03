@@ -203,13 +203,19 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1712144021530-2024-04-03T11:33:41.530Z/api-tts.zip"
         },
         "Handler": "handler.health",
         "Runtime": "python3.9",
         "FunctionName": "api-tts-dev-health",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "BUCKET_NAME": "my-bucket-for-audios",
+            "TABLE_NAME": "AudioTranscriptions"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -228,13 +234,19 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1712144021530-2024-04-03T11:33:41.530Z/api-tts.zip"
         },
         "Handler": "handler.v1_description",
         "Runtime": "python3.9",
         "FunctionName": "api-tts-dev-v1Description",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "BUCKET_NAME": "my-bucket-for-audios",
+            "TABLE_NAME": "AudioTranscriptions"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -253,13 +265,19 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1712144021530-2024-04-03T11:33:41.530Z/api-tts.zip"
         },
         "Handler": "handler.v2_description",
         "Runtime": "python3.9",
         "FunctionName": "api-tts-dev-v2Description",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "BUCKET_NAME": "my-bucket-for-audios",
+            "TABLE_NAME": "AudioTranscriptions"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -278,13 +296,19 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1712144021530-2024-04-03T11:33:41.530Z/api-tts.zip"
         },
         "Handler": "handler.v1_tts_description",
         "Runtime": "python3.9",
         "FunctionName": "api-tts-dev-v1ttsDescription",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "BUCKET_NAME": "my-bucket-for-audios",
+            "TABLE_NAME": "AudioTranscriptions"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -303,13 +327,19 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1712144021530-2024-04-03T11:33:41.530Z/api-tts.zip"
         },
         "Handler": "handler.v2_tts_description",
         "Runtime": "python3.9",
         "FunctionName": "api-tts-dev-v2ttsDescription",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "BUCKET_NAME": "my-bucket-for-audios",
+            "TABLE_NAME": "AudioTranscriptions"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -328,13 +358,19 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1711650001760-2024-03-28T18:20:01.760Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1712144021530-2024-04-03T11:33:41.530Z/api-tts.zip"
         },
         "Handler": "handler.v3_tts_description",
         "Runtime": "python3.9",
         "FunctionName": "api-tts-dev-v3ttsDescription",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "BUCKET_NAME": "my-bucket-for-audios",
+            "TABLE_NAME": "AudioTranscriptions"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -346,64 +382,64 @@
         "V3ttsDescriptionLogGroup"
       ]
     },
-    "HealthLambdaVersionavprQha1UK4ikxDpRK89rn0jkhA8zIKx0JQSIT5A": {
+    "HealthLambdaVersionSKF7N0lQrwlw3BGWVQpIwpAloXJfazD3MI6WvnQwy0U": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HealthLambdaFunction"
         },
-        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+        "CodeSha256": "ekmlsuquaWSNx1YT4S4xamNMUYxn9ep9HJj6VRUDawk="
       }
     },
-    "V1DescriptionLambdaVersionK9GisLmI8CpTmTYHCpGEgMINsiBC0gzxuqi1h0Jvw": {
+    "V1DescriptionLambdaVersionb6udKYLC1UAjvotX1hJF6MDfMwAiv3d3Mjjtxp2Nw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V1DescriptionLambdaFunction"
         },
-        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+        "CodeSha256": "ekmlsuquaWSNx1YT4S4xamNMUYxn9ep9HJj6VRUDawk="
       }
     },
-    "V2DescriptionLambdaVersiongEYIFrOYdvNoofp4VEdJqPyUbsDO6HJqJYPlc7PwlO8": {
+    "V2DescriptionLambdaVersion5rKSrcjUAxeI40pCfocTO73PL8BwkY9SCky8oCUPVFA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V2DescriptionLambdaFunction"
         },
-        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+        "CodeSha256": "ekmlsuquaWSNx1YT4S4xamNMUYxn9ep9HJj6VRUDawk="
       }
     },
-    "V1ttsDescriptionLambdaVersionPgBwFOOUF8kJSdjAwzMbKrW0lKv3YKTMJ16gZDw": {
+    "V1ttsDescriptionLambdaVersionEOCTn0HmsLDvh7iIoLCpD7l6zhs677PipL8KFXbgK6A": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V1ttsDescriptionLambdaFunction"
         },
-        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+        "CodeSha256": "ekmlsuquaWSNx1YT4S4xamNMUYxn9ep9HJj6VRUDawk="
       }
     },
-    "V2ttsDescriptionLambdaVersionBrz2ASHCxL3dEzHZM3U4KufNhiheSPL4xXbHhDOik": {
+    "V2ttsDescriptionLambdaVersionygHv7DM3ZfBEOxIg6EZiG2FZ0tTcYDOhpQ0M8Cvy7E": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V2ttsDescriptionLambdaFunction"
         },
-        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+        "CodeSha256": "ekmlsuquaWSNx1YT4S4xamNMUYxn9ep9HJj6VRUDawk="
       }
     },
-    "V3ttsDescriptionLambdaVersionBGec3zC30dsrpOU5cviVTXkXiW6duYR596pjrq7SE8U": {
+    "V3ttsDescriptionLambdaVersionGTkCP1Fzdiki4scAC36w9VxHSAsRoymnNa44KtvEgX0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V3ttsDescriptionLambdaFunction"
         },
-        "CodeSha256": "R3wpBsrnHGWfakcWVl5a5BP+9hj7MV8WVKAkLDx1MoE="
+        "CodeSha256": "ekmlsuquaWSNx1YT4S4xamNMUYxn9ep9HJj6VRUDawk="
       }
     },
     "HttpApi": {
@@ -876,10 +912,18 @@
       },
       "DependsOn": "HttpApiIntegrationV3ttsDescription"
     },
+    "MyS3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "my-bucket-for-audios"
+      }
+    },
     "MyS3BucketPolicy": {
       "Type": "AWS::S3::BucketPolicy",
       "Properties": {
-        "Bucket": "my-new-bucket-for-audios",
+        "Bucket": {
+          "Ref": "MyS3Bucket"
+        },
         "PolicyDocument": {
           "Statement": [
             {
@@ -889,7 +933,9 @@
                 "s3:GetObject"
               ],
               "Resource": [
-                "arn:aws:s3:::my-new-bucket-for-audios/*"
+                {
+                  "Fn::Sub": "arn:aws:s3:::${MyS3Bucket}/*"
+                }
               ]
             }
           ]
@@ -928,7 +974,7 @@
     "HealthLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HealthLambdaVersionavprQha1UK4ikxDpRK89rn0jkhA8zIKx0JQSIT5A"
+        "Ref": "HealthLambdaVersionSKF7N0lQrwlw3BGWVQpIwpAloXJfazD3MI6WvnQwy0U"
       },
       "Export": {
         "Name": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
@@ -937,7 +983,7 @@
     "V1DescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V1DescriptionLambdaVersionK9GisLmI8CpTmTYHCpGEgMINsiBC0gzxuqi1h0Jvw"
+        "Ref": "V1DescriptionLambdaVersionb6udKYLC1UAjvotX1hJF6MDfMwAiv3d3Mjjtxp2Nw"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
@@ -946,7 +992,7 @@
     "V2DescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V2DescriptionLambdaVersiongEYIFrOYdvNoofp4VEdJqPyUbsDO6HJqJYPlc7PwlO8"
+        "Ref": "V2DescriptionLambdaVersion5rKSrcjUAxeI40pCfocTO73PL8BwkY9SCky8oCUPVFA"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V2DescriptionLambdaFunctionQualifiedArn"
@@ -955,7 +1001,7 @@
     "V1ttsDescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V1ttsDescriptionLambdaVersionPgBwFOOUF8kJSdjAwzMbKrW0lKv3YKTMJ16gZDw"
+        "Ref": "V1ttsDescriptionLambdaVersionEOCTn0HmsLDvh7iIoLCpD7l6zhs677PipL8KFXbgK6A"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V1ttsDescriptionLambdaFunctionQualifiedArn"
@@ -964,7 +1010,7 @@
     "V2ttsDescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V2ttsDescriptionLambdaVersionBrz2ASHCxL3dEzHZM3U4KufNhiheSPL4xXbHhDOik"
+        "Ref": "V2ttsDescriptionLambdaVersionygHv7DM3ZfBEOxIg6EZiG2FZ0tTcYDOhpQ0M8Cvy7E"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V2ttsDescriptionLambdaFunctionQualifiedArn"
@@ -973,7 +1019,7 @@
     "V3ttsDescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V3ttsDescriptionLambdaVersionBGec3zC30dsrpOU5cviVTXkXiW6duYR596pjrq7SE8U"
+        "Ref": "V3ttsDescriptionLambdaVersionGTkCP1Fzdiki4scAC36w9VxHSAsRoymnNa44KtvEgX0"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V3ttsDescriptionLambdaFunctionQualifiedArn"

@@ -1,6 +1,8 @@
 {
   "devDependencies": {
     "serverless-deployment-bucket": "^1.6.0",
+    "serverless-dotenv": "^1.0.0-beta.2",
+    "serverless-dotenv-plugin": "^6.0.0",
     "serverless-python-requirements": "^6.0.1"
   }
 }

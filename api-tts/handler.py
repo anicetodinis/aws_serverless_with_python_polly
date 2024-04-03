@@ -4,12 +4,14 @@ import hashlib
 import uuid
 from datetime import datetime
 from botocore.exceptions import ClientError
+import os
 
 polly = boto3.client('polly')
 s3 = boto3.client('s3')
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('AudioTranscriptions')
+table = dynamodb.Table(os.getenv('TABLE_NAME'))
 now = datetime.now()
+
 
 def health(event, context):
     body = {
@@ -58,10 +60,10 @@ def v1_tts_description(event, context):
         nome = f"{id_unico}.mp3" 
 
         # Adicionando o ficheiro no novo bucket
-        s3.upload_fileobj(file, "my-new-bucket-for-audios", nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
+        s3.upload_fileobj(file, os.getenv('BUCKET_NAME'), nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
         
         # Gerando a URL do audio
-        audio_url = "https://my-new-bucket-for-audios.s3.amazonaws.com/"+nome  
+        audio_url = "https://"+os.getenv('BUCKET_NAME')+".s3.amazonaws.com/"+nome  
 
         # formatando a data de criação
         created_audio = now.strftime("%d-%m-%Y %H:%M:%S")
@@ -104,10 +106,10 @@ def v2_tts_description(event, context):
         nome = f"{unique_id}.mp3" 
 
         # Adicionando o arquivo de áudio no novo bucket
-        s3.upload_fileobj(file, "my-new-bucket-for-audios", nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
+        s3.upload_fileobj(file, os.getenv('BUCKET_NAME'), nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
         
         # Gerando a URL do áudio
-        audio_url = f"https://my-new-bucket-for-audios.s3.amazonaws.com/{nome}"  
+        audio_url = f"https://{os.getenv('BUCKET_NAME')}.s3.amazonaws.com/{nome}"  
 
         # formatando a data de criação
         created_audio = now.strftime("%d-%m-%Y %H:%M:%S")
@@ -138,6 +140,7 @@ def v2_tts_description(event, context):
             "statusCode": 500,
             "body": json.dumps({"error": error_message})
         }
+    
 def check_existing_entry(phrase_hash):
     try:
         response = table.get_item(
@@ -152,6 +155,7 @@ def check_existing_entry(phrase_hash):
     except ClientError as e:
         print(f"Error checking existing entry: {e}")
         return None
+    
 def v3_tts_description(event, context):
     try:
         # Extraindo a frase do event body
@@ -183,10 +187,10 @@ def v3_tts_description(event, context):
             nome = f"{phrase_hash}.mp3" 
 
             # Adicionando o arquivo de áudio no novo bucket
-            s3.upload_fileobj(file, "my-new-bucket-for-audios", nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
+            s3.upload_fileobj(file, os.getenv('BUCKET_NAME'), nome, ExtraArgs={'ACL': 'bucket-owner-full-control'})
             
             # Gerando a URL do áudio
-            audio_url = f"https://my-new-bucket-for-audios.s3.amazonaws.com/{nome}"  
+            audio_url = f"https://{os.getenv('BUCKET_NAME')}.s3.amazonaws.com/{nome}"  
 
             # formatando a data de criação
             created_audio = now.strftime("%d-%m-%Y %H:%M:%S")

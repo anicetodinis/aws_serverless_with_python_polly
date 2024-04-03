@@ -4,6 +4,13 @@ frameworkVersion: '3'
 plugins:
   - serverless-deployment-bucket
   - serverless-python-requirements
+  - serverless-dotenv-plugin
+
+custom:
+  dotenv:
+    path: .env
+
+useDotenv: true
 
 provider:
   name: aws
@@ -62,10 +69,15 @@ functions:
 
 resources:
   Resources:
+    MyS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${env:BUCKET_NAME}
+        
     MyS3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
-        Bucket: "my-new-bucket-for-audios"
+        Bucket: !Ref MyS3Bucket
         PolicyDocument:
           Statement:
             - Effect: Allow
@@ -73,12 +85,12 @@ resources:
               Action: 
                 - s3:GetObject
               Resource: 
-                - "arn:aws:s3:::my-new-bucket-for-audios/*"
+                - !Sub "arn:aws:s3:::${MyS3Bucket}/*"
 
     MyDynamoDBTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: "AudioTranscriptions"
+        TableName: ${env:TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: "Id"
             AttributeType: "S"
