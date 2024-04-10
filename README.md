@@ -1,83 +1,127 @@
-# Avaliação Sprints 4, 5 e 6 - Programa de Bolsas Compass UOL / AWS e Moçambique
+# Projeto de Avaliação - Sprints 4, 5 e 6
+ 
+Este projeto é parte da avaliação das sprints 4, 5 e 6 do programa de bolsas Compass UOL para formação em machine learning para AWS e Moçambique.
+ 
+## Descrição
+ 
+O objetivo deste projeto é criar uma aplicação serverless em Python que converte frases inseridas pelo usuário em áudio MP3 usando o serviço Polly da AWS.
+ 
+## Especificações
+ 
+- **Serviço AWS**: Amazon Polly
+- **Framework Serverless**: Serverless Framework
+- **Linguagem de Programação**: Python
+ 
+## Estrutura do Projeto
+ 
+- A aplicação foi desenvolvida utilizando o framework serverless.
+- A lógica para conversão de texto em áudio foi implementada em Python.
+- O deploy da aplicação foi realizado na AWS Cloud.
+ 
+## Desenvolvimento em Equipe
+ 
+- **Equipe**: Equipe 6 - Conversor de Texto para Áudio
+- **Membros**: Lírio Manga, Filipe Domingos dos Santos, Carlos Captine Alexandre Mutemba e Aniceto Dinis Munguambe
+ 
+## Instruções para Instalação e Execução
+ 
+### Pré-requisitos
+ 
+- Node.js e npm instalados
+- Conta na AWS com permissões para criar recursos como funções Lambda, buckets S3 e tabelas DynamoDB
+- Serverless Framework instalado globalmente (npm install -g serverless)
+ 
+### Instalação do Serverless Framework
+ 
+1. Instale o Serverless Framework em seu computador:
+ 
+   ```bash
+   npm install -g serverless
+   ```
+ 
+2. Gere suas credenciais da AWS (AWS Access Key e AWS Secret) na console AWS pelo IAM. Mais informações [aqui](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+ 
+3. Insira as credenciais no Serverless Framework executando o comando conforme exemplo:
+ 
+   ```bash
+   serverless config credentials \
+     --provider aws \
+     --key SUA_AWS_ACCESS_KEY \
+     --secret SUA_AWS_SECRET_KEY
+   ```
+ 
+   Você também pode configurar as credenciais via aws-cli executando o comando:
+ 
+   ```bash
+   aws configure
+   ```
+ 
+4. As credenciais devem ficar apenas localmente no seu ambiente. Nunca as exponha no README ou em qualquer outro ponto do código.
+ 
+### Deploy da Aplicação
+ 
+1. Para efetuar o deploy da solução na sua conta AWS, acesse a pasta api-tts e execute os comandos:
+   
+   ```bash
+   npm install -g serverless
+   ```
+   
+   ```bash
+   npm install serverless-deployment-bucket --save-dev
+   ```
 
-Avaliação da quarta, quinta e sexta sprints do programa de bolsas Compass UOL para formação em machine learning para AWS.
+   ```bash
+   npm install --save-dev serverless-python-requirements
+   ```
 
-***
+   ```bash
+   serverless plugin install --name serverless-dotenv
+   ```
 
-## Execução (Código Fonte)
+   ```bash
+   pip install python-dotenv 
+   ```
 
-Com base nas atividades anteriores realizadas, crie uma página html que irá capturar uma frase qualquer inserida pelo usuário e transformará essa frase em um audio em mp3 via polly.
+   ```bash
+   pip install boto3
+   ```
 
-**Especificações**:
 
-A aplicação deverá ser desenvolvida com o framework 'serverless' e deverá seguir a estrutura que já foi desenvolvida neste repo.
+   ```bash
+   serverless deploy
+   ```
+ 
+2. Após o deploy, você terá um retorno parecido com isso:
+ 
+   ```bash
+   Deploying api-tts to stage dev (us-east-1)
+ 
+   Service deployed to stack api-tts-dev (85s)
+ 
+   endpoints:
+     GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/
+     GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v1
+     GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v2
+     POST - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v1/tts
+    POST - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v2/tts
+    POST - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v3/tts
+ 
+   functions:
+   health: api-tts-dev-health (230 kB)
+   v1Description: api-tts-dev-v1Description (230 kB)
+   v2Description: api-tts-dev-v2Description (230 kB)
+   v1ttsDescription: api-tts-dev-v1ttsDescription (230 kB)
+   v2ttsDescription: api-tts-dev-v2ttsDescription (230 kB)
+   v3ttsDescription: api-tts-dev-v3ttsDescription (230 kB)
+   ```
+ 
+3. Nosso Resultado
+ 
+## Utilização da Aplicação
 
-Passo a passo para iniciar o projeto:
+### Rota 1 → Get - https://8hlxro3ncg.execute-api.us-east-1.amazonaws.com/
 
-1. Crie um repositório para sua equipe;
-
-2. Instale o framework serverless em seu computador. Mais informações [aqui](https://www.serverless.com/framework/docs/getting-started)
-
-```json
-npm install -g serverless
-```
-
-3. Gere suas credenciais (AWS Acess Key e AWS Secret) na console AWS pelo IAM. Mais informações [aqui](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/)
-
-4. Em seguida insira as credenciais e execute o comando conforme exemplo:
-
-```json
-serverless config credentials \
-  --provider aws \
-  --key AKIAIOSFODNN7EXAMPLE \
-  --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-  ```
-
-Também é possivel configurar via [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) executando o comando:
-
-```json
-$ aws configure
-AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-Default region name [None]: us-east-1
-Default output format [None]: ENTER
-  ```
-
-#### Observação
-
-As credenciais devem ficar apenas localmente no seu ambiente. Nunca exponha as crendenciais no Readme ou qualquer outro ponto do codigo.
-
-Após executar as instruções acima, o serverless estará pronto para ser utilizado e poderemos publicar a solução na AWS.
-
-5. Para efetuar o deploy da solução na sua conta aws execute (acesse a pasta `api-tts`):
-
-```
-serverless deploy
-```
-
-Depois de efetuar o deploy, vocẽ terá um retorno parecido com isso:
-
-```bash
-Deploying api-tts to stage dev (us-east-1)
-
-Service deployed to stack api-tts-dev (85s)
-
-endpoints:
-  GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/
-  GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v1
-  GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/v2
-functions:
-  health: api-tts-dev-health (2.1 kB)
-  v1Description: api-tts-dev-v1Description (2.1 kB)
-  v2Description: api-tts-dev-v2Description (2.1 kB)
-```
-
-6. Abra o browser e confirme que a solução está funcionando colando os 3 endpoints que deixamos como exemplo:
-
-### Rota 1 → Get /
-
-1. Esta rota já está presente no projeto
-2. O retorno rota é:
+1. O retorno rota é:
 
 ```json
   {
@@ -88,12 +132,9 @@ functions:
   }
 ```
 
-3. Status code para sucesso da requisição será `200`
+### Rota 2 → Get - https://8hlxro3ncg.execute-api.us-east-1.amazonaws.com/v1
 
-### Rota 2 → Get /v1
-
-1. Esta rota já está presente no projeto
-2. O retorno rota é:
+1. O retorno rota é:
 
 ```json
   {
@@ -102,29 +143,20 @@ functions:
  
 ```
 
-3. Status code para sucesso da requisição será `200`
+### Rota 3 → Get - https://8hlxro3ncg.execute-api.us-east-1.amazonaws.com/v2
 
-### Rota 3 → Get /v2
-
-1. Esta rota já está presente no projeto
-2. O retorno rota é:
+1. O retorno rota é:
 
 ```json
   {
     "message": "TTS api version 2."
   }
- 
+
 ```
 
-***
+### Rota 4 -> Post - https://8hlxro3ncg.execute-api.us-east-1.amazonaws.com/v1/tts
 
-Após conseguir rodar o projeto base o objetivo final será divida em duas partes:
-
-## Atividade -> Parte 1
-
-### Rota 4 -> Post /v1/tts
-
-Deverá ser criada a rota `/v1/tts` que receberá um post no formato abaixo:
+Deverá receber um post no formato abaixo:
 
 ```json
   {
@@ -132,9 +164,8 @@ Deverá ser criada a rota `/v1/tts` que receberá um post no formato abaixo:
   }
 ```
 
-- Essa frase recebida deverá ser transformada em áudio via AWS Polly
-- Deverá ser armazenada em um S3 (Que deverá ser público, apenas para a nossa avaliação)
-- A resposta da chamada da API deverá constar o endereço do audio gerado no S3
+- Essa frase recebida é transformada em áudio via AWS Polly
+- Depois armazenada em um S3 
 
 Resposta a ser entregue:
 
@@ -146,20 +177,14 @@ Resposta a ser entregue:
   }
 ```
 
-Dessa maneira essa será a arquitetura a ser implantada:
+Dessa maneira essa é a arquitetura implantada:
 
 ![post-v1-tts](./assets/post-v1-tts.png)
 
-Exemplos de referência:
 
-- <https://github.com/SC5/serverless-blog-to-podcast> (JS)
-- <https://github.com/hussainanjar/polly-lambda> (Python)
+### Rota 5 -> Post - https://8hlxro3ncg.execute-api.us-east-1.amazonaws.com/v2/tts
 
-## Atividade -> Parte 2
-
-### Rota 5 -> Post /v2/tts
-
-Deverá ser criada a rota `/v2/tts` que receberá um post no formato abaixo:
+Deverá receber um post no formato abaixo:
 
 ```json
   {
@@ -167,13 +192,9 @@ Deverá ser criada a rota `/v2/tts` que receberá um post no formato abaixo:
   }
 ```
 
-- Deverá ser criada uma lógica para que essa frase recebida seja um id unico (um hash).
-- Esse hash será o principal atributo em nosso dynamo db
-Exemplo: "Teste 123" será sempre o id "123456"
-- Com essa frase recebida deverá ser transformada em áudio via AWS Polly
-- Deverá ser armazenada em um S3 (Que deverá ser público, apenas para a nossa avaliação)
-- Deverá ser salva uma referencia no dynamoBD com as seguintes informações: id, frase e url do s3
-- A resposta da chamada da API deverá constar o endereço do audio gerado no S3
+- A frase recebida é transformada em áudio via AWS Polly
+- De seguida é armazenada em um S3
+- Depois é salva uma referencia no dynamoBD com as seguintes informações: id, frase e url do s3
 
 Resposta a ser entregue:
 
@@ -187,19 +208,14 @@ Resposta a ser entregue:
   }
 ```
 
-Dessa maneira essa será a arquitetura a ser implantada:
+Dessa maneira essa é a arquitetura implantada:
 
 ![post-v2-tts](./assets/post-v2-tts.png)
 
-Exemplos de referência com inserção no dynamoDb:
 
-- <https://github.com/serverless/examples/tree/v3/aws-python-http-api-with-dynamodb> (Python)
+### Rota 6 -> Post - https://8hlxro3ncg.execute-api.us-east-1.amazonaws.com/v3/tts
 
-## Atividade -> Parte 3
-
-### Rota 6 -> Post /v3/tts
-
-Deverá ser criada a rota `/v3/tts` que receberá um post no formato abaixo:
+Deverá receber um post no formato abaixo:
 
 ```json
   {
@@ -207,9 +223,9 @@ Deverá ser criada a rota `/v3/tts` que receberá um post no formato abaixo:
   }
 ```
 
-- Deverá utilizar a lógica do hash para verificar se a frase já foi gerada anteriormente.
-- Caso o hash já exista no dynamo entregue o retorno conforme abaixo.
-- Caso não exista faça a geração do audio, grave no s3 e grave as referencias no dynamo conforme Parte 2
+- Utiliza a lógica do hash para verificar se a frase já foi gerada anteriormente.
+- Caso o hash já exista no dynamo entrega o retorno conforme abaixo.
+- Caso não exista faz a geração do audio, grava no s3 e grava as referencias no dynamo conforme Rota 5
 
 Resposta a ser entregue:
 
@@ -222,48 +238,30 @@ Resposta a ser entregue:
   }
 ```
 
-Dessa maneira essa será a arquitetura a ser implantada:
+Dessa maneira a arquitetura implantada:
 
 ![post-v3-tts](./assets/post-v3-tts.png)
-
-***
-
-## Observações retorno esperado
-
-- os campos de entrada e saida deverão estar nos formatos e com os nomes apresentados.
-- status code para sucesso da requisição será `200`
-- status code para erros deverá ser `4XX` ou `5XX` (dica: o SDK retorna o tipo de erro)
-
-***
-
-## O que será avaliado?
-
-- Projeto em produção na AWS
-- Em python conforme projeto base disponibilizado
-- Infra estrutura como codigo
-- Seguir as atividades na ordem proposta
-- Sobre as rotas:
-  - Possuir em cada rota os retornos esperados (somente campos solicitados conforme especificação)
-- Organização geral do código fonte
-  - Estrutura de pastas
-  - Estrutura da logica de negócio
-  - Divisão de responsabilidades em arquivos/pastas distintos
-  - Otimização do código fonte (evitar duplicações de código)
-- Objetividade do README.md
-
-***
-
-
-## Entrega
-
-- **O trabalho deve ser feito em grupos de três ou quatro pessoas**;
-- Criar um repositório no Github;
-  - Colocar os avaliadores como membros do repositório criado; 
-- Subir o trabalho no repositório da equipe com um README.md:
-  - documentar detalhes sobre como a avaliação foi desenvolvida;
-  - dificuldades conhecidas;
-  - como utilizar o sistema;
-  - URL para acesso à página;
-- 🔨 Disponibilizar o código fonte desenvolvido (Sugestão: pasta `src`).
-
-- **O prazo de entrega do link do repositório no chat da weekly do dia 03/04/2024**.
+ 
+## Dificuldades Enfrentadas e Desafios
+ 
+Durante o desenvolvimento deste projeto, enfrentamos algumas dificuldades e desafios:
+ 
+1. **Configuração do Serverless Framework**: No início, tivemos dificuldades para configurar corretamente o Serverless Framework em nossas máquinas. Consultamos a documentação e realizamos algumas pesquisas para superar esse obstáculo.
+ 
+2. **Exposição de Credenciais da AWS**: Uma das principais preocupações foi garantir que as credenciais da AWS não fossem expostas em nosso código ou no README. Seguimos as melhores práticas de segurança para evitar qualquer exposição não intencional.
+ 
+3. **Criação da Rota /v1/tts**: Encontramos um erro "Not Found" ao tentar usar o método POST via CLI. Resolvemos esse problema utilizando o Postman para executar a requisição com sucesso.
+ 
+4. **Configuração do S3, DynamoDB e Polly no Serverless**: A configuração inicial desses serviços no Serverless Framework exigiu um entendimento mais profundo da integração entre eles. Após algumas tentativas e consultas à documentação, conseguimos configurar adequadamente.
+ 
+## Observações sobre Credenciais da AWS
+ 
+É crucial seguir as seguintes práticas para garantir a segurança das credenciais da AWS:
+ 
+- Nunca exponha suas credenciais no README ou em qualquer outro ponto do código fonte.
+- Configure suas credenciais localmente em seu ambiente de desenvolvimento, preferencialmente através do arquivo ~/.aws/credentials ou utilizando variáveis de ambiente.
+- Não compartilhe suas credenciais com pessoas não autorizadas e mantenha-as em sigilo.
+ 
+**Obrigado por usar a nossa aplicação**
+ 
+- Copyright: Equipe 6 - 2024
